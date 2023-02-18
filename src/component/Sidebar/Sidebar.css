@@ -1,0 +1,34 @@
+.main-sidebar { background-color: #262626 !important }
+
+.nav-link:hover, .active:hover{
+    color: #262626;
+}
+
+.nav-link:hover {
+    color: #262626;
+}
+
+li:hover > a > i  {
+    color: #262626;
+}
+
+p:hover {
+    color: #262626;
+}
+
+a:hover {
+    color: #262626;
+}
+
+.nav-icon:hover{
+    color: #262626;
+}
+
+a> .nav-link{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #fe5f55;
+}

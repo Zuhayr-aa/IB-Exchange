@@ -67,20 +67,20 @@ class sideBarComponent extends React.Component {
             <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               {/*  -- Add icons to the links using the .nav-icon className with font-awesome or any other icon font library -- */}
               <li className="nav-item menu-open">
-                <Link to={`/`} className="nav-link">
+                <a className="nav-link">
                   <i className="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Home Page
                     <i className="right fas fa-angle-left"></i>
                   </p>
-                </Link>
+                </a>
                 <ul className="nav nav-treeview">
                   {menuRows}
                 </ul>
 
                 <ul className="nav nav-treeview">
                   <li className="nav-link active">
-                    <Link to={`/Opinion`} className="nav-link">
+                    <Link to={`/Opinion`} className="nav-link" style={{padding:'0'}}>
                       <i className="nav-icon fa fa-book"></i>
                       <p>Post a Question</p>
                     </Link>
