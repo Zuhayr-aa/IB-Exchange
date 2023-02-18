@@ -61,7 +61,7 @@ export default {
 
             // qry for database
             let sql = "SELECT * FROM [Topics] WHERE TID=" + param;
-            console.log(sql);
+
 
             // Query the DB
             await connection.query(sql)
@@ -425,6 +425,31 @@ export default {
         }
     },
 
+    AddNewQuestion: async function (param) {
+        var result = 0;
+        var connection = null;
+        try {
+            connection = await this.getNewConnection();
+
+            let sql = `INSERT INTO [Questions] (UID, TID, CorrectAnswer, Question, QuestionDescription) Values(${param.UserID}, ${param.TopicID}, 1, '${param.Title}', '${param.DetailText}')`;
+
+            await connection.execute(sql);
+            result = 1;
+        } catch (err) {
+            result = -1;
+        } finally {
+            if (connection) {
+                try {
+                    // Always close connections
+                    await connection.State && connection.Close();
+                } catch (err) {
+                    result = -1;
+                }
+                return result;
+            }
+        }
+    },
+
     formatDate: function (date) {
         var mn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -439,4 +464,3 @@ export default {
         return [day, month, year].join('-');
     }
 };
-
